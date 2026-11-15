@@ -1,0 +1,29 @@
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { background: #F1F4EE; color: #17211C; font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif; }
+h1, h2, h3, h4 { font-family: 'Bricolage Grotesque', 'Trebuchet MS', sans-serif; }
+.num { font-variant-numeric: tabular-nums; }
+
+.panel { background: #fff; border: 1px solid #D5DCD3; border-radius: 14px; }
+.btn { border: 1px solid #D5DCD3; background: #fff; border-radius: 10px; padding: .55rem .9rem; font-weight: 500; }
+.btn:hover { background: #F1F4EE; }
+.btn-primary { background: #2E7D4F; border: 1px solid #2E7D4F; color: #fff; border-radius: 10px; padding: .65rem 1.1rem; font-weight: 600; }
+.btn-primary:hover { background: #256842; }
+.btn-danger { color: #B23A2E; border-color: #B23A2E; }
+.chip { border: 1px solid #D5DCD3; background: #fff; border-radius: 999px; padding: .35rem .8rem; font-size: .875rem; display: inline-flex; align-items: center; gap: .4rem; }
+.chip-on { background: #17211C; color: #F1F4EE; border-color: #17211C; }
+.seg { display: inline-flex; border: 1px solid #D5DCD3; border-radius: 10px; overflow: hidden; background: #fff; }
+.seg button { padding: .45rem .85rem; font-size: .875rem; }
+.seg button[aria-pressed='true'] { background: #2E7D4F; color: #fff; }
+.pill { font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 9px; color: #fff; white-space: nowrap; }
+.tag { font-size: 10.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; border: 1px solid #D5DCD3; border-radius: 4px; padding: 0 5px; color: #5C6B63; white-space: nowrap; }
+.label { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #2E7D4F; font-family: 'Bricolage Grotesque', sans-serif; }
+select, input[type=text], input[type=email] { border: 1px solid #D5DCD3; border-radius: 9px; padding: .5rem .6rem; background: #fff; }
+input[type=range] { accent-color: #2E7D4F; }
+.leaflet-container { background: #CFDCC5; font-family: 'IBM Plex Sans', sans-serif; border-radius: 12px; }
+.leaflet-tooltip { font-weight: 600; }
+:focus-visible { outline: 3px solid #0E5A6B; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
