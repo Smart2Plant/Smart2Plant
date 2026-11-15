@@ -12,7 +12,7 @@ export default function Home() {
   const steps: { n: string; v: View; t: string; d: string; i: string }[] = [
     { n: '0', v: 'portfolio', i: '📋', t: x('Mis campos', 'My fields'), d: x('Todos los campos que asesorás en una lista, con lo que necesita atención primero.', 'Every field you advise in one list, with what needs attention first.') },
     { n: '1', v: 'field', i: '✏️', t: x('Campo y parcelas', 'Field and plots'), d: x('Dibujá el campo y cada parcela en el mapa. Cargá cultivo, mes de siembra, antecesor, manejo y riego.', 'Draw the field and each plot on the map. Enter crop, sowing month, previous crop, tillage and irrigation.') },
-    { n: '2', v: 'predict', i: '📈', t: x('Predicción', 'Prediction'), d: x('Compará el plan solicitado, el recomendado y una alternativa. Mirá cómo le va a cada uno en un año seco, normal o lluvioso: rinde, margen, agua, erosión y plagas.', 'Compare the requested plan, the recommended one and an alternative. See how each does in a dry, normal or wet year: yield, margin, water, erosion and pests.') },
+    { n: '2', v: 'predict', i: '📈', t: x('Predicción', 'Prediction'), d: x('Compará el plan solicitado, el recomendado y una alternativa. Mirá cómo le va a cada uno en un año seco, normal o húmedo: rinde, margen, agua, erosión y plagas.', 'Compare the requested plan, the recommended one and an alternative. See how each does in a dry, normal or wet year: yield, margin, water, erosion and pests.') },
     { n: '3', v: 'monitor', i: '🛰', t: x('Seguimiento satelital', 'Satellite monitoring'), d: x('Cada captura compara lo que ve el satélite con lo esperado y avisa los desvíos. Compará con campos similares en un radio de kilómetros.', 'Each capture compares what the satellite sees with what was expected and flags deviations. Compare with similar fields within a radius in km.') },
     { n: '4', v: 'reports', i: '📄', t: x('Informes', 'Reports'), d: x('Informes listos para el productor, el dueño del campo y el borrador del Plan de Uso. Por PDF, WhatsApp o email.', 'Ready reports for the farmer, the landowner and the Soil Use Plan draft. By PDF, WhatsApp or email.') },
   ]
@@ -36,7 +36,7 @@ export default function Home() {
           <motion.div className="md:pl-4" initial={reducedMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className="text-sm font-semibold uppercase tracking-widest text-leaf">{x('Para agrónomos', 'For agronomists')}</p>
             <h1 className="mt-2 font-title text-4xl font-extrabold leading-[1.08] lg:text-[52px]">{x('Planificá rotaciones y seguí cada chacra desde el satélite.', 'Plan rotations and follow every field from space.')}</h1>
-            <p className="mt-4 max-w-xl text-lg text-mute">{x('Smart2Plant usa datos de la NASA para predecir cómo le va a cada parcela en un año seco, normal o lluvioso, y avisarte cuando algo se aparta del plan. Sin drones ni sensores en el campo.', 'Smart2Plant uses NASA data to predict how each plot does in a dry, normal or wet year, and alerts you when something drifts from the plan. No drones or field sensors.')}</p>
+            <p className="mt-4 max-w-xl text-lg text-mute">{x('Smart2Plant usa datos de la NASA para predecir cómo le va a cada parcela en un año seco, normal o húmedo, y avisarte cuando algo se aparta del plan. Sin drones ni sensores en el campo.', 'Smart2Plant uses NASA data to predict how each plot does in a dry, normal or wet year, and alerts you when something drifts from the plan. No drones or field sensors.')}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <button className="rounded-[10px] bg-forest px-5 py-3 font-semibold text-white hover:bg-leaf" onClick={() => go('portfolio')}>{x('Empezar', 'Get started')} →</button>
               <button className="rounded-[10px] border border-forest/40 bg-white/60 px-5 py-3 font-semibold text-forest" onClick={() => document.getElementById('planes')?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' })}>{x('Ver planes', 'See plans')}</button>
@@ -63,7 +63,7 @@ export default function Home() {
               </div>
               <div className="absolute bottom-6 right-2 rounded-xl border border-line bg-white/90 px-3 py-2 text-sm shadow-sm backdrop-blur">
                 <p className="text-[11px] font-semibold uppercase tracking-wide text-mute">{x('Escenarios', 'Scenarios')}</p>
-                <p className="font-semibold text-forest">☀️ {x('seco', 'dry')} · ⛅ normal · 🌧 {x('lluvioso', 'wet')}</p>
+                <p className="font-semibold text-forest">☀️ {x('seco', 'dry')} · ⛅ normal · 🌧 {x('húmedo', 'wet')}</p>
               </div>
             </>}
             <p className="px-2 pt-1 text-center text-xs text-mute">{x('Campo de ejemplo con sus parcelas, sobre el relieve NASA SRTM.', 'Example field and its plots, on NASA SRTM relief.')}</p>

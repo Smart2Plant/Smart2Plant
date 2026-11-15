@@ -12,7 +12,7 @@ export default function Predict() {
   const [editOpen, setEditOpen] = useState(true)
   const [metric, setMetric] = useState<Metric>('ndvi')
   const mon = useMonth()
-  const scName = (s: Scenario) => ({ dry: x('Año seco', 'Dry year'), normal: x('Año normal', 'Normal year'), wet: x('Año lluvioso', 'Wet year') }[s])
+  const scName = (s: Scenario) => ({ dry: x('Año seco', 'Dry year'), normal: x('Año normal', 'Normal year'), wet: x('Año húmedo', 'Wet year') }[s])
   const cropName = (k: CropKey) => (lang === 'es' ? CROPS[k].es : CROPS[k].en)
 
   const { base, edits, plansOf, evalPlan } = usePlans()
@@ -75,7 +75,7 @@ export default function Predict() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6">
-      <PageTitle step={x('Paso 2', 'Step 2')} title={x('Predicción por escenario', 'Prediction by scenario')} sub={x('Cómo le iría a cada parcela en un año seco, normal o lluvioso, con el clima histórico de NASA para este campo.', 'How each plot would do in a dry, normal or wet year, using NASA historical climate for this field.')} />
+      <PageTitle step={x('Paso 2', 'Step 2')} title={x('Predicción por escenario', 'Prediction by scenario')} sub={x('Cómo le iría a cada parcela en un año seco, normal o húmedo, con el clima histórico de NASA para este campo.', 'How each plot would do in a dry, normal or wet year, using NASA historical climate for this field.')} />
 
       {/* Plan cards */}
       <section className="mb-5">

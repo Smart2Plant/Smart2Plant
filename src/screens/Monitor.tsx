@@ -98,26 +98,6 @@ function MonitorMine() {
     <div className="mx-auto max-w-7xl px-4 py-6">
       <PageTitle step={x('Paso 3', 'Step 3')} title={x('Seguimiento satelital', 'Satellite monitoring')} sub={x('Zafra de verano 2025-26. Cada captura compara lo que ve el satélite con lo que esperaba el plan.', 'Summer season 2025-26. Each capture compares what the satellite sees with what the plan expected.')} />
 
-      {/* Plans */}
-      <section className="grid gap-4 md:grid-cols-3">
-        {model.plans.map((p) => (
-          <button key={p.pl} onClick={() => { updateClient({ ...client, monPlan: p.pl }); setCapIdx(null) }} className={`panel flex flex-col gap-2 p-4 text-left ${plan === p.pl ? 'ring-2 ring-leaf' : ''}`}>
-            <div className="flex items-start justify-between gap-2">
-              <div><p className="label">{x('Plan', 'Plan')}</p><h3 className="font-title text-xl font-bold">{planName(p.pl)}</h3></div>
-              <div className="text-right"><p className="font-title text-xl font-bold num">{PRICE[p.pl]}</p><p className="text-xs text-mute">{x('por campo / mes', 'per field / month')}</p></div>
-            </div>
-            <p className="text-sm text-mute">{x(`1 imagen cada ${STEP[p.pl]} días`, `1 image every ${STEP[p.pl]} days`)}</p>
-            <div className="grid grid-cols-3 gap-2 text-center text-sm">
-              <div className="rounded-lg bg-tint p-2"><p className="font-title text-lg font-bold num">{p.usable}/{p.caps.length}</p><p className="text-[11px] text-mute">{x('imágenes útiles', 'usable images')}</p></div>
-              <div className="rounded-lg bg-tint p-2"><p className="font-title text-lg font-bold num">{p.maxGapDays} d</p><p className="text-[11px] text-mute">{x('mayor hueco', 'longest gap')}</p></div>
-              <div className="rounded-lg bg-tint p-2"><p className="font-title text-lg font-bold num" style={{ color: p.delay !== null && p.delay > 14 ? '#B23A2E' : '#2E7D4F' }}>{p.delay !== null ? `+${p.delay} d` : '—'}</p><p className="text-[11px] text-mute">{x('detecta el desvío', 'detects the issue')}</p></div>
-            </div>
-            {plan === p.pl && <Status tone="good">{x('Plan activo', 'Active plan')}</Status>}
-          </button>
-        ))}
-      </section>
-      <p className="mt-2 text-xs text-mute">{x('Precios tentativos, a validar. Las imágenes vienen de NASA HLS (Landsat + Sentinel-2), que pasa cada 2-3 días: la frecuencia del plan define cada cuánto se analiza y se avisa.', 'Tentative prices. Images come from NASA HLS (Landsat + Sentinel-2), which revisits every 2-3 days: the plan sets how often the field is analysed and alerts are sent.')}</p>
-
       {/* Detection comparison */}
       {model.eventDay !== null && (
         <section className="panel mt-5 p-4">

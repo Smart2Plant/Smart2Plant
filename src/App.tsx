@@ -56,8 +56,6 @@ function Footer() {
     <footer className="mt-10 border-t border-line bg-white">
       <div className="mx-auto max-w-7xl space-y-1 px-4 py-5 text-sm text-mute">
         <p className="font-semibold text-ink">{x('Herramienta informativa: sugiere, el agrónomo y el productor deciden.', 'Informative tool: it suggests, the agronomist and the farmer decide.')}</p>
-        <p>{x('Datos', 'Data')}: NASA HLS (Landsat + Sentinel-2), GPM IMERG, SMAP, NASA POWER, SRTM. {x('Locales', 'Local')}: CONEAT, INIA, INUMET, MGAP. {x('Etiquetas', 'Labels')}: <b>{x('Observado', 'Observed')}</b> {x('lo midió un satélite', 'measured by a satellite')} · <b>{x('Modelado', 'Modeled')}</b> {x('lo calculó la app', 'calculated by the app')} · <b>{x('Supuesto', 'Assumed')}</b> {x('valor de referencia', 'reference value')}.</p>
-        <p className="text-xs">{x('Hecho con asistencia de SI', 'Built with SI assistance')} · NASA Space Apps Challenge 2026 · Uruguay</p>
       </div>
     </footer>
   )

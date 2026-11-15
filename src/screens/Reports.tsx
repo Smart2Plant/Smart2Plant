@@ -47,7 +47,7 @@ function ReportView() {
       const n = s.r.normal
       const base = `${x('Parcela', 'Plot')} ${i + 1} · ${crop(s.p.plan.crop)} · ${s.ha.toFixed(1)} ha · ${x('pend.', 'slope')} ${s.t.slopePct}%`
       if (who === 'plan') return `${base}\n   ${x('Erosión estimada', 'Estimated erosion')}: ${n.erosionYear} t/ha·${x('año', 'yr')} (${x('tolerancia', 'tolerance')} ${TOLERANCE}) → ${n.erosionYear > TOLERANCE ? x('NO CUMPLE', 'DOES NOT COMPLY') : x('cumple', 'complies')} · ${s.p.plan.tillage ? x('laboreo', 'tillage') : x('siembra directa', 'no-till')}`
-      return `${base}\n   ${x('Seco / normal / lluvioso', 'Dry / normal / wet')}: USD ${s.r.dry.margin} / ${n.margin} / ${s.r.wet.margin} ${x('por ha', 'per ha')} · ${x('agua cubierta (normal)', 'water covered (normal)')} ${Math.round(n.waterCovered * 100)}% · ${x('plaga principal', 'main pest')}: ${n.pests[0]?.name.split('|')[lang === 'es' ? 0 : 1]}`
+      return `${base}\n   ${x('Seco / normal / húmedo', 'Dry / normal / wet')}: USD ${s.r.dry.margin} / ${n.margin} / ${s.r.wet.margin} ${x('por ha', 'per ha')} · ${x('agua cubierta (normal)', 'water covered (normal)')} ${Math.round(n.waterCovered * 100)}% · ${x('plaga principal', 'main pest')}: ${n.pests[0]?.name.split('|')[lang === 'es' ? 0 : 1]}`
     }),
     '',
     who === 'owner' ? x('Cumplimiento del plan y estado del suelo verificados con NASA HLS.', 'Plan compliance and soil status verified with NASA HLS.') : who === 'plan' ? x('Borrador para revisión y firma del Ing. Agr. acreditado.', 'Draft for review and signature by the accredited agronomist.') : x('Recomendación: priorizar cobertura invernal en parcelas sobre el límite de erosión.', 'Recommendation: prioritise winter cover on plots above the erosion limit.'),
