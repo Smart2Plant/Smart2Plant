@@ -28,9 +28,10 @@ function Header() {
         <span className="rounded-full border border-white/40 px-2 py-0.5 text-[11px]">{x('Datos de demostración', 'Demo data')}</span>
         <div className="ml-auto flex items-center gap-2">
           <label className="sr-only" htmlFor="cl">{x('Campo', 'Field')}</label>
-          <select id="cl" value={clientId} onChange={(e) => setClientId(e.target.value)} className="!border-white/30 !bg-forest text-sm text-white">
+          {!['home', 'portfolio'].some(v => v == view) && <select id="cl" value={clientId} onChange={(e) => setClientId(e.target.value)} className="!border-white/30 !bg-forest text-sm text-white">
             {clients.map((c) => <option key={c.id} value={c.id}>{c.owner}</option>)}
           </select>
+          }
           <div className="flex overflow-hidden rounded-lg border border-white/30 text-sm font-semibold" role="group" aria-label="Language">
             {(['es', 'en'] as const).map((l) => <button key={l} onClick={() => setLang(l)} aria-pressed={lang === l} className={`px-2.5 py-1 ${lang === l ? 'bg-white text-forest' : ''}`}>{l.toUpperCase()}</button>)}
           </div>
