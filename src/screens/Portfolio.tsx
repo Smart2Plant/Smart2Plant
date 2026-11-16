@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useApp } from '../store'
 import { Loading, PageTitle, Status } from '../components/ui'
 import { CROPS, CROP_COLOR, TOLERANCE, areaHa, parcelTerrain, simulate } from '../agro'
+import AlertsButton from '../components/AlertsButton'
 
 export default function Portfolio() {
   const { x, lang, clients, fields, setClientId, go } = useApp()
@@ -44,7 +45,10 @@ export default function Portfolio() {
                 <h2 className="font-title text-xl font-bold">{r.c.owner}</h2>
                 <p className="text-sm text-mute">{r.f.name} · {r.f.department} · {r.ha.toFixed(0)} ha</p>
               </div>
-              {r.over || r.alerts > 2 ? <Status tone="warn">{x('Revisar', 'Review')}</Status> : <Status tone="good">{x('En orden', 'OK')}</Status>}
+              <div className="flex flex-none items-center gap-2">
+  {r.over || r.alerts > 2 ? <Status tone="warn">{x('Revisar', 'Review')}</Status> : <Status tone="good">{x('En orden', 'OK')}</Status>}
+  <AlertsButton clientId={r.c.id} owner={r.c.owner} field={r.f} />
+</div>
             </div>
             <div className="flex h-3 overflow-hidden rounded-full">
               {r.sims.map((s) => <div key={s.p.id} style={{ flex: areaHa(s.p.poly), background: CROP_COLOR[s.p.plan.crop] }} title={lang === 'es' ? CROPS[s.p.plan.crop].es : CROPS[s.p.plan.crop].en} />)}
@@ -59,6 +63,7 @@ export default function Portfolio() {
               <button className="btn-primary" onClick={() => { setClientId(r.c.id); go('field') }}>{x('Abrir campo', 'Open field')}</button>
               <button className="btn" onClick={() => { setClientId(r.c.id); go('predict') }}>{x('Predicción', 'Prediction')}</button>
               <button className="btn" onClick={() => { setClientId(r.c.id); go('monitor') }}>{x('Seguimiento', 'Monitoring')}</button>
+              {/* <AlertsButton clientId={r.c.id} owner={r.c.owner} field={r.f} /> */}
             </div>
           </article>
         ))}
